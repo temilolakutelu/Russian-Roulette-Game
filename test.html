@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body onload="change_color(true)">
+    <script type="text/javascript">
+        function change_color(flag) {
+            // for (var i = 0; i < 6; i += 1) {
+            var color = null;
+            if (flag === true) {
+                var color = "red";
+                console.log("red " + flag);
+            }
+            else {
+                var color = "green";
+                console.log("green " + flag);
+            }
+            document.body.style.backgroundColor = color;
+            flag = !flag;
+            var t = setTimeout(function () {
+                change_color(flag)
+            }, 1000);
+            // } clearTimeout(t);
+
+           
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn {
+            width: 200px;
+            height: 300px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn"></div>
+    <script type="text/javascript">
+        tColor("red", "white", 1000, 500);
+        var inter;
+        function tColor(color1, color2, cycleTime, waitTime) {
+            var x;
+
+            for (x = 0; x < 3; x += 1) {
+                inter = setInterval(function firstColor() {
+                    document.body.style.backgroundColor = color1;
+                    console.log("red");
+                    setTimeout(changeColor, waitTime);
+                }, cycleTime);
+
+                function changeColor() {
+                    document.body.style.backgroundColor = color2;
+                    console.log("white");
+                }
+                // closing();
+
+            }
+
+
+        }
+        function closing() {
+            clearInterval(inter);
+            console.log("stop");
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

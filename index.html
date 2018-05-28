@@ -1,91 +1,16 @@
 <html>
 
 <head>
-    <style type="text/css">
-        body {
-            background: linear-gradient(pink, rgb(211, 67, 211), rgb(255, 0, 179));
-        }
-
-        #title {
-            text-transform: uppercase;
-            background-color: rgb(233, 214, 236);
-            color: rgb(226, 43, 202);
-            border-radius: 5px;
-            width: 600px;
-            height: 50px;
-            text-align: center;
-            margin-left: 400px;
-        }
-
-        #main {
-            margin: 80px;
-            border-radius: 40px;
-            width: 90%;
-            height: 400px;
-        }
-
-        #circles {
-            width: 80%;
-            height: 200px;
-            padding: 50px 0 0 80px;
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        .circle {
-            background-color: rgb(100, 97, 97);
-            width: 100px;
-            height: 100px;
-            border-radius: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 30px;
-        }
-
-        .circle:hover,
-        .circle:focus {
-            background: rgb(173, 29, 24);
-            color: black;
-        }
-
-        #trigger-button {
-            width: 200px;
-            height: 50px;
-            text-align: center;
-            background-color: maroon;
-            border-radius: 30px;
-            color: white;
-            font-size: 26px;
-            line-height: 50px;
-            margin: 0px auto;
-            text-transform: uppercase;
-        }
-
-        #trigger-button:hover {
-            background-color: rgb(207, 195, 195);
-            color: red;
-        }
-
-        #numberSelector {
-            margin-left: 600px;
-        }
-
-        #gameOver {
-            visibility: hidden;
-            margin-left: 400px;
-            font-size: 20px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="javascript" type="text/javascript" href="index.js">
 </head>
 
 <body id="bgColor">
-    <div id="title">
-        <h1>Russian-Roulette Game</h1>
-    </div>
+
     <div id="main">
+        <div id="title">
+            <h1>Russian-Roulette Game</h1>
+        </div>
         <div id="circles">
             <div class="circle">1</div>
             <div class="circle">2</div>
@@ -94,77 +19,21 @@
             <div class="circle">5</div>
             <div class="circle">6</div>
         </div>
+        <div id="gameOver">
+            <p>
+                YOU JUST KILLED YOURSELF
+                <br/>
+                <strong>GAME OVER!!!</strong>
 
+            </p>
+        </div>
         <div id="trigger-button">
             Shoot
         </div>
         <p id="numberSelector"></p>
     </div>
-    <div id="gameOver">
-        <p>
-            YOU JUST KILLED YOURSELF
-            <br/>
-            <strong>GAME OVER!!!</strong>
-            <br/> REFRESH PAGE TO START AGAIN</p>
-        </p>
-    </div>
-    <script type="text/javascript">
-        window.onload = function () {
-            console.log('Loadder');
-            var circles = document.getElementsByClassName('circle');
-            var pickedCircle;
 
 
-            for (var i = 0; i < circles.length; i++) {
-                circles[i].addEventListener('click', function (event) {
-                    pickedCircle = event.target.innerText;
-
-                    console.log('clicked...circle...', pickedCircle);
-                });
-            }
-
-            var fireButton = document.getElementById('trigger-button');
-            fireButton.addEventListener('click', function (event) {
-                var randomNumber = Math.floor(Math.random() * 6) + 1;
-                if (pickedCircle == undefined) {
-                    document.getElementById("numberSelector").innerHTML = "Please pick a number!!!";
-                    console.log("Please pick a number");
-                }
-                else if (randomNumber == pickedCircle) {
-                    console.log('randomNumber', randomNumber, pickedCircle, randomNumber == pickedCircle);
-                    flash();
-                    document.getElementById("gameOver").style.visibility = "visible";
-                }
-                else {
-
-                    console.log(randomNumber == pickedCircle);
-                }
-
-            });
-        }
-        function flash() {
-            var myVar = setInterval(setColor, 200);
-            function setColor() {
-                var x = document.body;
-                x.style.backgroundColor = "red";
-                console.log("red");
-
-            }
-            var myvar2 = setInterval(color2, 300);
-            function color2() {
-                var y = document.body;
-                y.style.backgroundColor = "white";
-                console.log("white");
-
-            }
-            setTimeout(stopFlash, 2000);
-            function stopFlash() {
-                clearInterval(myVar);
-                clearInterval(myvar2);
-                document.body.style.backgroundColor = "white";
-            }
-        }
-    </script>
 </body>
 
 </html>
