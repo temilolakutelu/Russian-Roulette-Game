@@ -1,8 +1,8 @@
 window.onload = function () {
     console.log('Loadder');
     var circles = document.getElementsByClassName('circle');
-    var pickedCircle = [];
-    pickedCircle.length = 1;
+    var pickedCircle;
+
 
 
     for (var i = 0; i < circles.length; i++) {
@@ -47,7 +47,7 @@ function flash() {
         console.log("white");
 
     }
-    setTimeout(stopFlash, 2000);
+    setTimeout(stopFlash, 3000);
     function stopFlash() {
         clearInterval(myVar);
         clearInterval(myvar2);
