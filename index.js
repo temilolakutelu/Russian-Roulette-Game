@@ -2,15 +2,28 @@ window.onload = function () {
     console.log('Loadder');
     var circles = document.getElementsByClassName('circle');
     var pickedCircle;
+<<<<<<< HEAD
 
+=======
+     var selected = []
+>>>>>>> dc82ef1d9c3c0330f131688e9e2a8dfd9d8afeca
 
 
     for (var i = 0; i < circles.length; i++) {
-        circles[i].addEventListener('click', function (event) {
-            pickedCircle = event.target.innerText;
+            circles[i].addEventListener('click', function (event) {
+                pickedCircle = event.target.innerText;
+                selected.push(pickedCircle);
+                this.style.backgroundColor= "pink";
+                if (selected.length > 1) {
+                alert("You can't pick two slots, now start again");
+                selected.pop;
+                location.reload();
+                } else {
+                    selected.pop;
+                }
+                console.log('clicked...circle...',selected, pickedCircle);
+            });
 
-            console.log('clicked...circle...', pickedCircle);
-        });
     }
 
     var fireButton = document.getElementById('trigger-button');
