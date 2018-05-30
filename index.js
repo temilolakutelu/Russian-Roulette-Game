@@ -2,27 +2,24 @@ window.onload = function () {
     console.log('Loadder');
     var circles = document.getElementsByClassName('circle');
     var pickedCircle;
-<<<<<<< HEAD
 
-=======
-     var selected = []
->>>>>>> dc82ef1d9c3c0330f131688e9e2a8dfd9d8afeca
+    var selected = []
 
 
     for (var i = 0; i < circles.length; i++) {
-            circles[i].addEventListener('click', function (event) {
-                pickedCircle = event.target.innerText;
-                selected.push(pickedCircle);
-                this.style.backgroundColor= "pink";
-                if (selected.length > 1) {
+        circles[i].addEventListener('click', function (event) {
+            pickedCircle = event.target.innerText;
+            selected.push(pickedCircle);
+            this.style.backgroundColor = "pink";
+            if (selected.length > 1) {
                 alert("You can't pick two slots, now start again");
                 selected.pop;
                 location.reload();
-                } else {
-                    selected.pop;
-                }
-                console.log('clicked...circle...',selected, pickedCircle);
-            });
+            } else {
+                selected.pop;
+            }
+            console.log('clicked...circle...', selected, pickedCircle);
+        });
 
     }
 
@@ -37,10 +34,15 @@ window.onload = function () {
             console.log('randomNumber', randomNumber, pickedCircle, randomNumber == pickedCircle);
             flash();
             document.getElementById("gameOver").style.visibility = "visible";
+            setTimeout(reloadGun, 3500);
+            function reloadGun() {
+                location.reload();
+            }
         }
         else {
 
             console.log(randomNumber == pickedCircle);
+            location.reload();
         }
 
     });
